@@ -1,1 +1,44 @@
-<p>signup works!</p>
+<div class="signup-screen">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="heading">
+          <h2>Create Account,</h2>
+          <p>Sign Up to get started!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-5 justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <form class="pt-3" [formGroup]="programForm">
+          <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+          </div>
+          <div class="signup-btn mt-4">
+            <a class="c-btn pink d-block">Sign Up</a>
+          </div>
+        </form>
+        <div class="login-account text-center">
+          <span>Already have an Account?</span>
+          <a class="text-pinkgradient" routerLink="/auth/login">
+            Sign In
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
