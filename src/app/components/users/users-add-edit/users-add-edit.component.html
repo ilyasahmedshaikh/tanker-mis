@@ -1,1 +1,41 @@
-<p>users-add-edit works!</p>
+<div class="users-add-edit-screen">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-10">
+                <div class="heading">
+                    <h2>Users</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5 justify-content-center">
+            <div class="col-md-10">
+                <form class="form-row" [formGroup]="programForm">
+                    <div class="form-group col-12 col-md-6">
+                        <label>User Name</label>
+                        <input type="text" class="form-control" placeholder="User Name" formControlName="userName">
+                    </div>
+    
+                    <div class="form-group col-12 col-md-6">
+                        <label>Phone No.</label>
+                        <input type="number" class="form-control" placeholder="Phone No." formControlName="phoneNo">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="inputState">Type</label>
+                        <select class="form-control" formControlName="type">
+                          <option>Staff</option>
+                          <option>User</option>
+                        </select>
+                      </div>
+    
+                    <div class="add-btn mt-3">
+                        <a class="c-btn pink" routerLink="/users/users-listing">Add User</a>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+</div>
