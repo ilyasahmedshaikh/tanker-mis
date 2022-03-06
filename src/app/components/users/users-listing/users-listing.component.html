@@ -3,7 +3,11 @@
       <div class="row">
         <div class="col-12">
             <div class="heading">
-                <h2>Users</h2>
+                <h2></h2>
+                <h2>
+                  Users
+                  <a class="c-btn pink" routerLink="/users/users-add-edit">Add User</a>
+                </h2>
             </div>
         </div>
       </div>
@@ -13,8 +17,8 @@
             <thead>
               <tr>
                 <th scope="col">No.</th>
-                <th scope="col">User Name</th>
-                <th scope="col">Phone No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">Type</th>
                 <th scope="col">Actions</th>
@@ -23,8 +27,8 @@
             <tbody>
               <tr *ngFor="let item of table">
                 <td>{{item.id}}</td>
-                <td>{{item.userName}}</td>
-                <td>{{item.contactNo}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.phone}}</td>
                 <td>{{item.email}}</td>
                 <td>{{item.type}}</td>
                 <td>
