@@ -1,31 +1,36 @@
-<div class="">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+<div class="tankers-listing-screen">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          <div class="heading">
+              <h2>Tankers</h2>
+          </div>
+      </div>
+    </div>
+    <div class="row pt-5 justify-content-center">
+      <div class="col-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Tanker No. Plate</th>
+              <th scope="col">Tanker Name/Type</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of table">
+              <td>{{item.id}}</td>
+              <td>{{item.noPlate}}</td>
+              <td>{{item.nameType}}</td>
+              <td>
+                <i class="fa-solid fa-pen-clip text-pinkgradient" routerLink="/tankers/tankers-add-edit"></i>
+                <i class="fa-solid fa-trash-can text-pinkgradient"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

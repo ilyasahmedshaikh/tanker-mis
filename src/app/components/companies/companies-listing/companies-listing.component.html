@@ -1,1 +1,42 @@
-<p>companies-listing works!</p>
+<div class="companies-listing-screen">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <div class="heading">
+                <h2>Companies</h2>
+            </div>
+        </div>
+      </div>
+      <div class="row pt-5 justify-content-center">
+        <div class="col-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Contact No.</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Address</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of table">
+                <td>{{item.id}}</td>
+                <td>{{item.companyName}}</td>
+                <td>{{item.contactNo}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.contactPerson}}</td>
+                <td>{{item.address}}</td>
+                <td>
+                  <i class="fa-solid fa-pen-clip text-pinkgradient" routerLink="/companies/companies-add-edit"></i>
+                  <i class="fa-solid fa-trash-can text-pinkgradient"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

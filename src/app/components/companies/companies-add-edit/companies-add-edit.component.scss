@@ -1,0 +1,18 @@
+@import '/src/styles.scss';
+
+.companies-add-edit-screen {
+  // padding: 5% 0;
+    .heading {
+        h2 {
+            font-size: 22px;
+            color: $black;
+        }
+    }
+    .add-btn {
+        display: block;
+        margin: auto;
+        a {
+            letter-spacing: .1px;
+        }
+    }
+}
