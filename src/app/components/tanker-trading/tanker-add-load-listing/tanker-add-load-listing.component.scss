@@ -1,0 +1,32 @@
+@import '/src/styles.scss';
+
+.tanker-add-load-listing-screen {
+  // padding: 5% 0;
+    .heading {
+        h2 {
+            font-size: 22px;
+            color: $black;
+            a {
+                float: right;
+            }
+        }
+    }
+}
+
+table {
+    thead {
+        background: $default;
+        th {
+            color: $white;
+        }
+    }
+    tbody {
+        td {
+            i {
+                font-size: 18px;
+                margin-right: 12px;
+                cursor: pointer;
+            }
+        }
+    }
+}
