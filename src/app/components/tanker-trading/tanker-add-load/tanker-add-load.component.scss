@@ -1,0 +1,88 @@
+@import '/src/styles.scss';
+
+.tanker-add-load-screen {
+  // padding: 5% 0;
+    .heading {
+        h2 {
+            font-size: 22px;
+            color: $black;
+        }
+    }
+    .load-card {
+        .c1 {
+            @include respond(mobile) {
+                margin-top: 0px;
+            }
+        }
+        .c2 {
+            @include respond(mobile) {
+                margin-top: 13px;
+            }
+        }
+    }
+    h3 {
+        &.head {
+            font-size: 22px;
+            color: $black;
+        }
+    }
+    .rent-calculation {
+        h3 {
+            &.head {
+                font-size: 22px;
+                color: $black;
+            }
+        }
+        p {
+            color: $darkGray;
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+            span {
+                color: $black;
+                font-size: 18px;
+                font-weight: 500;
+                float: right;
+                &.grand {
+                    font-weight: 600;
+                    color: $black;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .add-btn {
+        a {
+            letter-spacing: .1px;
+        }
+    }
+}
+
+table {
+    thead {
+        background: $default;
+        th {
+            color: $white;
+        }
+    }
+    td {
+        &.total {
+            h1 {
+                font-size: 20px;
+                font-weight: 600;
+                color: $black;
+                padding-top: 2px;
+                @include respond(mobile) {
+                    font-size: 18px;
+                }
+            }
+            span {
+                color: $darkGray;
+                font-size: 16px;
+                @include respond(mobile) {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

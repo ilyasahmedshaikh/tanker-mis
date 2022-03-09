@@ -1,0 +1,29 @@
+@import '/src/styles.scss';
+
+.load-card-screen {
+    .heading {
+        h2 {
+            font-size: 18px;
+            color: $black;
+        }
+    }
+    .total-amount {
+        padding-top: 8px;
+        p {
+            color: $darkGray;
+            font-size: 17px;
+            @include respond(mobile) {
+                font-size: 15px;
+            }
+        }
+        h1 {
+            font-size: 21px;
+            font-weight: 600;
+            color: $black;
+            padding-top: 4px;
+            @include respond(mobile) {
+                font-size: 18px;
+            }
+        }
+    }
+}

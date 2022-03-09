@@ -1,1 +1,136 @@
-<p>tanker-add-load works!</p>
+<div class="tanker-add-load-screen">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading">
+                    <h2>Add Load</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- form inputs -->
+        <div class="row pt-5">
+            <div class="col-12">
+                <form class="form-row" [formGroup]="programForm">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Date</label>
+                        <input type="date" class="form-control" placeholder="Date" formControlName="date">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Company</label>
+                        <select class="form-control" formControlName="company">
+                            <option>PSO Petrol Pump</option>
+                            <option>ATTOCK Petrol Pump</option>
+                            <option>TOTAL PARCO Petrol Pump</option>
+                            <option>BYCO Petrol Pump</option>
+                            <option>HASCOL Petrol Pump</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Invoice No.</label>
+                        <input type="text" class="form-control" placeholder="Invoice No." formControlName="invoiceNo">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Vehicle No.</label>
+                        <select class="form-control" formControlName="vehicleNo">
+                          <option>KU-4101</option>
+                          <option>JF-9001</option>
+                          <option>KW-6001</option>
+                          <option>JV-0801</option>
+                          <option>External Vehicle</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>External Vehicle No.</label>
+                        <input type="number" class="form-control" placeholder="External Vehicle No." formControlName="externalVehicleNo">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- PMG & HSD cards  -->
+        <div class="row load-card">
+            <div class="col-12 col-md-6 c1 pt-2">
+                <app-load-card></app-load-card>
+            </div>
+            <div class="col-12 col-md-6 c2 pt-2">
+                <app-load-card></app-load-card>
+            </div>
+        </div>
+
+        <!-- form inputs -->
+        <div class="row pt-4">
+            <div class="col-12">
+                <form class="form-row" [formGroup]="programForm">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Expense Amount</label>
+                        <input type="number" class="form-control" placeholder="Expense Amount" formControlName="expenseAmount">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Vehicle Rent</label>
+                        <input type="number" class="form-control" placeholder="Vehicle Rent" formControlName="vehicleRent">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Summary of Load  -->
+        <div class="row pt-4">
+            <div class="col-12 text-center">
+                <h3 class="head">Summary of Load</h3>
+            </div>
+            <div class="col-12 pt-3">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Load Breakdown</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of table">
+                        <td>{{item.loadBreakdown}}</td>
+                        <td>{{item.rate}}</td>
+                        <td>{{item.total}}</td>
+                      </tr>
+                      <tr class="bg-light text-dark border-top">
+                        <td class="total">
+                            <span>Total Litres:</span>
+                            <h1>24000</h1>
+                        </td>
+                        <td></td>
+                        <td class="total">
+                            <span>Total Amount:</span>
+                            <h1>3,400,000</h1>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+        <!-- rent calculation -->
+        <div class="row rent-calculation pt-4">
+            <div class="col-12 text-center">
+                <h3 class="head">Rent Calculation</h3>
+            </div>
+            <div class="col-12 col-md-5"></div>
+            <div class="col-12 col-md-7 pt-3">
+                <p>Total load litres: <span>24,000</span></p>
+                <p>Load with rent: <span>1.20 × 24,000 = 28,800</span></p>
+                <!-- total -->
+                <p>Total load amount: <span>3,400,000</span></p>
+                <p>Total load with rent: <span>28,800</span></p>
+                <p>Total expense: <span>3,000</span></p>
+                <!-- grand total -->
+                <p class="mt-3">Grand Total: <span class="grand">3,431,000</span></p>
+            </div>
+        </div>
+
+        <div class="col-12 text-center">
+            <div class="add-btn mt-5">
+                <a class="c-btn pink" routerLink="/tanker-trading/tanker-add-load-listing">Add Load</a>
+            </div>
+        </div>
+</div>
