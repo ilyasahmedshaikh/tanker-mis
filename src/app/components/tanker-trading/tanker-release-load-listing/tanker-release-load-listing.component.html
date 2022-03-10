@@ -1,1 +1,49 @@
-<p>tanker-release-load-listing works!</p>
+<div class="tanker-release-load-listing-screen">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <div class="heading">
+              <h2>
+                Tanker Release Loads
+                <a class="c-btn pink" routerLink="/tanker-trading/tanker-release-load">Release Load</a>
+              </h2>
+            </div>
+        </div>
+      </div>
+      <div class="row pt-5 justify-content-center">
+        <div class="col-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Date</th>
+                <th scope="col">Company</th>
+                <th scope="col">Invoice No.</th>
+                <th scope="col">Vehicle No.</th>
+                <th scope="col">PMG</th>
+                <th scope="col">HSD</th>
+                <th scope="col">Grand Total</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of table">
+                <td>{{item.id}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.company}}</td>
+                <td>{{item.invoiceNo}}</td>
+                <td>{{item.vehicleNo}}</td>
+                <td>{{item.pmg}}</td>
+                <td>{{item.hsd}}</td>
+                <td>{{item.grandTotal}}</td>
+                <td>
+                  <i class="fa-solid fa-pen-clip text-pinkgradient" routerLink="/tanker-trading/tanker-release-load"></i>
+                  <i class="fa-solid fa-trash-can text-pinkgradient"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
