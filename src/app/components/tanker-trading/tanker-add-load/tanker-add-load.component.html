@@ -19,11 +19,7 @@
                     <div class="form-group col-12 col-md-6">
                         <label>Company</label>
                         <select class="form-control" formControlName="company">
-                            <option>PSO Petrol Pump</option>
-                            <option>ATTOCK Petrol Pump</option>
-                            <option>TOTAL PARCO Petrol Pump</option>
-                            <option>BYCO Petrol Pump</option>
-                            <option>HASCOL Petrol Pump</option>
+                            <option *ngFor="let item of companies">{{item.company}}</option>
                         </select>
                     </div>
                     <div class="form-group col-12 col-md-6">
@@ -32,15 +28,12 @@
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Vehicle No.</label>
-                        <select class="form-control" formControlName="vehicleNo">
-                          <option>KU-4101</option>
-                          <option>JF-9001</option>
-                          <option>KW-6001</option>
-                          <option>JV-0801</option>
-                          <option>External Vehicle</option>
+                        <select class="form-control" formControlName="vehicleNo" (change)="checkIfExternal($event)">
+                          <option *ngFor="let item of vehicles">{{item.vehicleNo}}</option>
+                          <option value="external">External Vehicle</option>
                         </select>
                     </div>
-                    <div class="form-group col-12 col-md-6">
+                    <div class="form-group col-12 col-md-6" *ngIf="isExternal">
                         <label>External Vehicle No.</label>
                         <input type="number" class="form-control" placeholder="External Vehicle No." formControlName="externalVehicleNo">
                     </div>
@@ -130,7 +123,8 @@
 
         <div class="col-12 text-center">
             <div class="add-btn mt-5">
-                <a class="c-btn pink" routerLink="/tanker-trading/tanker-add-load-listing">Add Load</a>
+                <a class="c-btn pink" routerLink="/tanker-trading/tanker-add-load-listing">Save</a>
             </div>
         </div>
+    </div>
 </div>
