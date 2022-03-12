@@ -1,1 +1,117 @@
-<p>tanker-release-load works!</p>
+<div class="tanker-release-load-screen">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading">
+                    <h2>Release Load</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- form inputs -->
+        <div class="row pt-5">
+            <div class="col-12">
+                <form class="form-row" [formGroup]="programForm">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Vehicle No.</label>
+                        <select class="form-control" formControlName="vehicleNo" (change)="checkIfExternal($event)">
+                          <option *ngFor="let item of vehicles">{{item.vehicleNo}}</option>
+                          <option value="external">External Vehicle</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6" *ngIf="isExternal">
+                        <label>External Vehicle No.</label>
+                        <input type="number" class="form-control" placeholder="External Vehicle No." formControlName="externalVehicleNo">
+                    </div>
+                </form>
+                <div class="text-center">
+                    <div class="add-btn mt-3">
+                        <a class="c-btn pink">Get Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PMG & HSD cards  -->
+        <div class="row load-card pt-5">
+            <div class="col-12">
+                <div class="heading">
+                    <h2>Load Details</h2>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pt-3">
+                <div class="admin-card">
+                    <h4>PMG (Petrol)</h4>
+                    <h1>16,000 <span>Litres</span></h1>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pt-3">
+                <div class="admin-card">
+                    <h4>HSD (Diesel)</h4>
+                    <h1>8,000 <span>Litres</span></h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- form inputs -->
+        <div class="row release-form">
+            <div class="col-12">
+                <div class="heading">
+                    <h2>Release Load</h2>
+                </div>
+                <form class="form-row pt-3" [formGroup]="programForm">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Litres to Sell</label>
+                        <input type="number" class="form-control" placeholder="Litres to Sell" formControlName="litresSell">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Type of Sell</label>
+                        <select class="form-control" formControlName="typeSell">
+                          <option>PMG</option>
+                          <option>HSD</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Purchase Rate</label>
+                        <input type="number" class="form-control" placeholder="Purchase Rate" formControlName="purchaseRate">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Rent Per/Litre</label>
+                        <input type="number" class="form-control" placeholder="Rent Per/Litre" formControlName="rentPerLitre">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Per/Litre Sell Price</label>
+                        <input type="number" class="form-control" placeholder="Per/Litre Sell Price" formControlName="perLitreSellPrice">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Commission Per/Litre</label>
+                        <input type="number" class="form-control" placeholder="Commission Per/Litre" formControlName="commissionPerLitre">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Commission Total</label>
+                        <input type="number" class="form-control" placeholder="Commission Total" formControlName="commissionTotal">
+                    </div>
+                </form>
+
+                <hr>
+                <!-- other inputs -->
+                <form class="form-row pt-2" [formGroup]="programForm">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Sold Address</label>
+                        <textarea class="form-control" rows="3" placeholder="Sold Address.." formControlName="soldAddress"></textarea>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Other Details</label>
+                        <textarea class="form-control" rows="3" placeholder="Other Details.." formControlName="otherDetails"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-12 text-center">
+            <div class="add-btn mt-4">
+                <a class="c-btn pink" routerLink="/tanker-trading/tanker-release-load-listing">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
