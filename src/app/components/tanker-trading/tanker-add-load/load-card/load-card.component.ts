@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoadCardComponent implements OnInit {
 
   programForm: any = FormGroup;
+  totalAmount: any = 0;
 
   constructor(
     private fb: FormBuilder
@@ -23,6 +24,10 @@ export class LoadCardComponent implements OnInit {
       litre: ['', Validators.required],
       rateLitre: ['', Validators.required]
     });
+  }
+
+  onDataChange() {
+    this.totalAmount = this.programForm.value.litre * this.programForm.value.rateLitre;
   }
 
 }

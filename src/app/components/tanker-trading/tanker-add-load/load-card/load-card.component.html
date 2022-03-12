@@ -6,15 +6,15 @@
         <form class="form-row mt-3" [formGroup]="programForm">
             <div class="form-group col-12">
                 <label>Litre</label>
-                <input type="number" class="form-control" placeholder="Litre" formControlName="litre">
+                <input type="number" class="form-control" placeholder="Litre" formControlName="litre" (keyup)="onDataChange()">
             </div>
             <div class="form-group col-12">
                 <label>Rate/Litre</label>
-                <input type="number" class="form-control" placeholder="Rate/Litre" formControlName="rateLitre">
+                <input type="number" class="form-control" placeholder="Rate/Litre" formControlName="rateLitre" (keyup)="onDataChange()">
             </div>
             <div class="col-12 total-amount">
                 <p>Total</p>
-                <h1>1,160,000</h1>
+                <h1>{{totalAmount}}</h1>
             </div>
         </form>
     </div>
