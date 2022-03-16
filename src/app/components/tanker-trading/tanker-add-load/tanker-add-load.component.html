@@ -44,10 +44,10 @@
         <!-- PMG & HSD cards  -->
         <div class="row load-card">
             <div class="col-12 col-md-6 c1 pt-2">
-                <app-load-card [loadType]="loadTypePmg"></app-load-card>
+                <app-load-card [loadType]="loadTypePmg" (getCardData)="onPmgCardData($event)"></app-load-card>
             </div>
             <div class="col-12 col-md-6 c2 pt-2">
-                <app-load-card [loadType]="loadTypeHsd"></app-load-card>
+                <app-load-card [loadType]="loadTypeHsd" (getCardData)="onHsdCardData($event)"></app-load-card>
             </div>
         </div>
 
@@ -82,20 +82,25 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of table">
-                        <td>{{item.loadBreakdown}}</td>
-                        <td>{{item.rate}}</td>
-                        <td>{{item.total}}</td>
+                      <tr *ngIf="pmgCardData?.litre">
+                        <td>{{pmgCardData.litre}} <strong>{{pmgCardData.loadType}}</strong></td>
+                        <td>{{pmgCardData.rateLitre}}</td>
+                        <td>{{pmgCardData.total}}</td>
+                      </tr>
+                      <tr *ngIf="hsdCardData?.litre">
+                        <td>{{hsdCardData.litre}} <strong>{{hsdCardData.loadType}}</strong></td>
+                        <td>{{hsdCardData.rateLitre}}</td>
+                        <td>{{hsdCardData.total}}</td>
                       </tr>
                       <tr class="bg-light text-dark border-top">
                         <td class="total">
                             <span>Total Litres:</span>
-                            <h1>24000</h1>
+                            <h1>{{pmgCardData.litre + hsdCardData.litre}}</h1>
                         </td>
                         <td></td>
                         <td class="total">
                             <span>Total Amount:</span>
-                            <h1>3,400,000</h1>
+                            <h1>{{pmgCardData.total + hsdCardData.total}}</h1>
                         </td>
                       </tr>
                     </tbody>

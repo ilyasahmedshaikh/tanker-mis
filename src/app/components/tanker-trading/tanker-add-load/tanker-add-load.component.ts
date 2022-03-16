@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TankerAddLoadComponent implements OnInit {
 
   programForm: any = FormGroup;
-  table: any = FormGroup;
   companies: any = [];
   vehicles: any = [];
 
@@ -17,6 +16,19 @@ export class TankerAddLoadComponent implements OnInit {
 
   loadTypePmg: any = "PMG (Petrol)";
   loadTypeHsd: any = "HSD (Diesel)";
+
+  pmgCardData: any = {
+    loadType: '',
+    litre: 0,
+    rateLitre: 0,
+    total: 0
+  };
+  hsdCardData: any = {
+    loadType: '',
+    litre: 0,
+    rateLitre: 0,
+    total: 0
+  };
 
   constructor(
     private fb: FormBuilder
@@ -81,19 +93,6 @@ export class TankerAddLoadComponent implements OnInit {
       expenseAmount: ['', Validators.required],
       vehicleRent: ['1.20', Validators.required],
     });
-    
-    this.table = [
-      {
-        loadBreakdown: '8,000 (PMG)',
-        rate: '145',
-        total: '1,160,000'
-      },
-      {
-        loadBreakdown: '16,000 (HSD)',
-        rate: '140',
-        total: '2,240,000'
-      },
-    ]
   }
 
   onExternal() {
@@ -106,6 +105,14 @@ export class TankerAddLoadComponent implements OnInit {
     if(event.target.value == 'external') {
       this.onExternal();
     }
+  }
+
+  onPmgCardData(event: any) {
+    this.pmgCardData = event;
+  }
+
+  onHsdCardData(event: any) {
+    this.hsdCardData = event;
   }
 
 }
