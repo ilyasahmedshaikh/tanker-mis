@@ -13,6 +13,10 @@
             <div class="col-12">
                 <form class="form-row" [formGroup]="programForm">
                     <div class="form-group col-12 col-md-6">
+                        <label>Date</label>
+                        <input type="date" class="form-control" placeholder="Date" formControlName="date">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
                         <label>Vehicle No.</label>
                         <select class="form-control" formControlName="vehicleNo" (change)="checkIfExternal($event)">
                           <option *ngFor="let item of vehicles">{{item.vehicleNo}}</option>

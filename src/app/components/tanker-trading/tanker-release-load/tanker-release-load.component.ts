@@ -42,12 +42,13 @@ export class TankerReleaseLoadComponent implements OnInit {
 
   formInit() {
     this.programForm = this.fb.group({
+      date: ['', Validators.required],
       vehicleNo: ['', Validators.required],
       externalVehicleNo: ['', Validators.required],
       litresSell: ['', Validators.required],
       typeSell: ['', Validators.required],
-      purchaseRate: ['145', Validators.required],
-      rentPerLitre: ['1.20', Validators.required],
+      purchaseRate: [145, Validators.required],
+      rentPerLitre: [1.20, Validators.required],
       perLitreSellPrice: ['', Validators.required],
       commissionPerLitre: ['', Validators.required],
       commissionTotal: ['', Validators.required],

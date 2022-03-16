@@ -57,7 +57,7 @@
                 <form class="form-row" [formGroup]="programForm">
                     <div class="form-group col-12 col-md-6">
                         <label>Expense Amount</label>
-                        <input type="number" class="form-control" placeholder="Expense Amount" formControlName="expenseAmount">
+                        <input type="number" class="form-control" placeholder="Expense Amount" formControlName="expenseAmount" (change)="calculateTotal()">
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Vehicle Rent</label>
@@ -85,12 +85,12 @@
                       <tr *ngIf="pmgCardData?.litre">
                         <td>{{pmgCardData.litre}} <strong>{{pmgCardData.loadType}}</strong></td>
                         <td>{{pmgCardData.rateLitre}}</td>
-                        <td>{{pmgCardData.total}}</td>
+                        <td>{{pmgCardData.total | currency: 'PKR'}}</td>
                       </tr>
                       <tr *ngIf="hsdCardData?.litre">
                         <td>{{hsdCardData.litre}} <strong>{{hsdCardData.loadType}}</strong></td>
                         <td>{{hsdCardData.rateLitre}}</td>
-                        <td>{{hsdCardData.total}}</td>
+                        <td>{{hsdCardData.total | currency: 'PKR'}}</td>
                       </tr>
                       <tr class="bg-light text-dark border-top">
                         <td class="total">
@@ -116,7 +116,7 @@
             <div class="col-12 col-md-5"></div>
             <div class="col-12 col-md-7 pt-3">
                 <p>Load with rent: 
-                    <span class="pl-2"><strong>{{programForm.value.vehicleRent * (pmgCardData.litre + hsdCardData.litre)}}</strong></span>
+                    <span class="pl-2"><strong>{{programForm.value.vehicleRent * (pmgCardData.litre + hsdCardData.litre) | currency: 'PKR'}}</strong></span>
                     <span>{{programForm.value.vehicleRent}} × {{pmgCardData.litre + hsdCardData.litre}} = </span>
                 </p>
                 <!-- total -->
