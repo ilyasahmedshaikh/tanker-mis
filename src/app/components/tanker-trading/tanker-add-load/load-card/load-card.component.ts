@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./load-card.component.scss']
 })
 export class LoadCardComponent implements OnInit {
+
+  @Input('loadType') loadType: any = "";
 
   programForm: any = FormGroup;
   totalAmount: any = 0;

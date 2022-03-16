@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,9 @@ export class TankerAddLoadComponent implements OnInit {
   vehicles: any = [];
 
   isExternal: boolean = false;
+
+  loadTypePmg: any = "PMG (Petrol)";
+  loadTypeHsd: any = "HSD (Diesel)";
 
   constructor(
     private fb: FormBuilder
