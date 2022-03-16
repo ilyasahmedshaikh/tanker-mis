@@ -100,7 +100,7 @@
                         <td></td>
                         <td class="total">
                             <span>Total Amount:</span>
-                            <h1>{{pmgCardData.total + hsdCardData.total}}</h1>
+                            <h1>{{pmgCardData.total + hsdCardData.total | currency: 'PKR'}}</h1>
                         </td>
                       </tr>
                     </tbody>
@@ -115,14 +115,19 @@
             </div>
             <div class="col-12 col-md-5"></div>
             <div class="col-12 col-md-7 pt-3">
-                <p>Total load litres: <span>24,000</span></p>
-                <p>Load with rent: <span>1.20 × 24,000 = 28,800</span></p>
+                <p>Load with rent: 
+                    <span class="pl-2"><strong>{{programForm.value.vehicleRent * (pmgCardData.litre + hsdCardData.litre)}}</strong></span>
+                    <span>{{programForm.value.vehicleRent}} × {{pmgCardData.litre + hsdCardData.litre}} = </span>
+                </p>
                 <!-- total -->
-                <p>Total load amount: <span>3,400,000</span></p>
-                <p>Total load with rent: <span>28,800</span></p>
-                <p>Total expense: <span>3,000</span></p>
+                <p>Total load amount: <span>{{pmgCardData.total + hsdCardData.total | currency: 'PKR'}}</span></p>
+                <p>Total expense: <span>{{programForm.value.expenseAmount | currency: 'PKR'}}</span></p>
                 <!-- grand total -->
-                <p class="mt-3">Grand Total: <span class="grand">3,431,000</span></p>
+                <p class="mt-3">Grand Total: 
+                    <span class="grand">
+                        {{grandTotal | currency: 'PKR'}}
+                    </span>
+                </p>
             </div>
         </div>
 

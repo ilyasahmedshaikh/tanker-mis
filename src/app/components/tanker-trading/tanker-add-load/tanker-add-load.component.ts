@@ -30,6 +30,8 @@ export class TankerAddLoadComponent implements OnInit {
     total: 0
   };
 
+  grandTotal: number = 0;
+
   constructor(
     private fb: FormBuilder
   ) { }
@@ -90,8 +92,8 @@ export class TankerAddLoadComponent implements OnInit {
       invoiceNo: ['', Validators.required],
       vehicleNo: ['', Validators.required],
       externalVehicleNo: ['', Validators.required],
-      expenseAmount: ['', Validators.required],
-      vehicleRent: ['1.20', Validators.required],
+      expenseAmount: [0, Validators.required],
+      vehicleRent: [1.20, Validators.required],
     });
   }
 
@@ -109,10 +111,23 @@ export class TankerAddLoadComponent implements OnInit {
 
   onPmgCardData(event: any) {
     this.pmgCardData = event;
+
+    // calculating grandTotal on every change from child card component 
+    this.calculateTotal();
   }
 
   onHsdCardData(event: any) {
     this.hsdCardData = event;
+
+    // calculating grandTotal on every change from child card component 
+    this.calculateTotal();
+  }
+
+  calculateTotal() {
+    let loadRent = this.programForm.value.vehicleRent * (this.pmgCardData.litre + this.hsdCardData.litre);
+    let loadAmount = this.pmgCardData.total + this.hsdCardData.total;
+
+    this.grandTotal = loadRent + loadAmount + this.programForm.value.expenseAmount;
   }
 
 }
