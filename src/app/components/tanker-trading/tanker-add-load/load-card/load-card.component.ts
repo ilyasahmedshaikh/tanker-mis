@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoadCardComponent implements OnInit {
 
+  @Input('loadType') loadType: any = "";
+  @Output() getCardData = new EventEmitter<any>();
+
   programForm: any = FormGroup;
+  totalAmount: number = 0;
 
   constructor(
     private fb: FormBuilder
@@ -20,9 +24,22 @@ export class LoadCardComponent implements OnInit {
 
   formInit() {
     this.programForm = this.fb.group({
-      litre: ['', Validators.required],
-      rateLitre: ['', Validators.required]
+      litre: [0, Validators.required],
+      rateLitre: [0, Validators.required]
     });
+  }
+
+  onDataChange() {
+    this.totalAmount = this.programForm.value.litre * this.programForm.value.rateLitre;
+
+    let data = {
+      loadType: this.loadType,
+      litre: this.programForm.value.litre,
+      rateLitre: this.programForm.value.rateLitre,
+      total: this.totalAmount
+    }
+
+    this.getCardData.emit(data);
   }
 
 }

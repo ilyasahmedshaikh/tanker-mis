@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,11 +9,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TankerAddLoadComponent implements OnInit {
 
   programForm: any = FormGroup;
-  table: any = FormGroup;
   companies: any = [];
   vehicles: any = [];
 
   isExternal: boolean = false;
+
+  loadTypePmg: any = "PMG (Petrol)";
+  loadTypeHsd: any = "HSD (Diesel)";
+
+  pmgCardData: any = {
+    loadType: '',
+    litre: 0,
+    rateLitre: 0,
+    total: 0
+  };
+  hsdCardData: any = {
+    loadType: '',
+    litre: 0,
+    rateLitre: 0,
+    total: 0
+  };
+
+  grandTotal: number = 0;
 
   constructor(
     private fb: FormBuilder
@@ -75,22 +92,9 @@ export class TankerAddLoadComponent implements OnInit {
       invoiceNo: ['', Validators.required],
       vehicleNo: ['', Validators.required],
       externalVehicleNo: ['', Validators.required],
-      expenseAmount: ['', Validators.required],
-      vehicleRent: ['1.20', Validators.required],
+      expenseAmount: [0, Validators.required],
+      vehicleRent: [1.20, Validators.required],
     });
-    
-    this.table = [
-      {
-        loadBreakdown: '8,000 (PMG)',
-        rate: '145',
-        total: '1,160,000'
-      },
-      {
-        loadBreakdown: '16,000 (HSD)',
-        rate: '140',
-        total: '2,240,000'
-      },
-    ]
   }
 
   onExternal() {
@@ -103,6 +107,27 @@ export class TankerAddLoadComponent implements OnInit {
     if(event.target.value == 'external') {
       this.onExternal();
     }
+  }
+
+  onPmgCardData(event: any) {
+    this.pmgCardData = event;
+
+    // calculating grandTotal on every change from child card component 
+    this.calculateTotal();
+  }
+
+  onHsdCardData(event: any) {
+    this.hsdCardData = event;
+
+    // calculating grandTotal on every change from child card component 
+    this.calculateTotal();
+  }
+
+  calculateTotal() {
+    let loadRent = this.programForm.value.vehicleRent * (this.pmgCardData.litre + this.hsdCardData.litre);
+    let loadAmount = this.pmgCardData.total + this.hsdCardData.total;
+
+    this.grandTotal = loadRent + loadAmount + this.programForm.value.expenseAmount;
   }
 
 }
