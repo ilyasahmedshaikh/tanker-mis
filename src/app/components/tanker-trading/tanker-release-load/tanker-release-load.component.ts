@@ -20,6 +20,9 @@ export class TankerReleaseLoadComponent implements OnInit {
   ngOnInit(): void {
     this.formInit();
 
+    this.onCalSellPerLitre();
+    this.onCalCommission();
+
     this.vehicles = [
       {
         id: 1,
@@ -45,11 +48,12 @@ export class TankerReleaseLoadComponent implements OnInit {
       date: ['', Validators.required],
       vehicleNo: ['', Validators.required],
       externalVehicleNo: ['', Validators.required],
-      litresSell: ['', Validators.required],
+      litresSell: [0, Validators.required],
       typeSell: ['', Validators.required],
       purchaseRate: [145, Validators.required],
       rentPerLitre: [1.20, Validators.required],
-      perLitreSellPrice: ['', Validators.required],
+      perLitreWithRent: [0, Validators.required],
+      perLitreSellPrice: [0, Validators.required],
       commissionPerLitre: ['', Validators.required],
       commissionTotal: ['', Validators.required],
       soldAddress: ['', Validators.required],
@@ -67,6 +71,30 @@ export class TankerReleaseLoadComponent implements OnInit {
     if(event.target.value == 'external') {
       this.onExternal();
     }
+  }
+
+  onCalSellPerLitre() {
+    // calculating perLitreSellPrice
+    let calc = this.programForm.value.purchaseRate + this.programForm.value.rentPerLitre;
+
+    this.programForm.patchValue({
+      perLitreSellPrice: calc,
+      perLitreWithRent: calc
+    });
+
+    // calculating commision on every change trigger 
+    this.onCalCommission()
+  }
+
+  onCalCommission() {
+    // calculating commision
+    let commisionPerLtr = this.programForm.value.perLitreSellPrice - this.programForm.value.perLitreWithRent;
+    let commisionTotal = commisionPerLtr * this.programForm.value.litresSell
+
+    this.programForm.patchValue({
+      commissionPerLitre: commisionPerLtr.toFixed(2),
+      commissionTotal: commisionTotal.toFixed(2)
+    });
   }
 
 }
