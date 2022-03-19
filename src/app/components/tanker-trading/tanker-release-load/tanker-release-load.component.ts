@@ -13,6 +13,13 @@ export class TankerReleaseLoadComponent implements OnInit {
 
   isExternal: boolean = false;
 
+  pmgLoadTemp: number = 8000;
+  hsdLoadTemp: number = 16000;
+
+  // data from Backend
+  pmgLoad: number = 8000;
+  hsdLoad: number = 16000;
+
   constructor(
     private fb: FormBuilder
   ) { }
@@ -95,6 +102,20 @@ export class TankerReleaseLoadComponent implements OnInit {
       commissionPerLitre: commisionPerLtr.toFixed(2),
       commissionTotal: commisionTotal.toFixed(2)
     });
+  }
+
+  onUpdateCardLtrs(event: any) {
+    let sellType = event.target.value;
+
+    this.pmgLoadTemp = this.pmgLoad;
+    this.hsdLoadTemp = this.hsdLoad;
+    
+    if(sellType == 'pmg') {
+      this.pmgLoadTemp = this.pmgLoad - this.programForm.value.litresSell;
+    }
+    if(sellType == 'hsd') {
+      this.hsdLoadTemp = this.hsdLoad - this.programForm.value.litresSell;
+    }
   }
 
 }

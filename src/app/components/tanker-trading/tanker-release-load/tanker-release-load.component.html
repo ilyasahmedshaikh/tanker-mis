@@ -46,13 +46,13 @@
             <div class="col-12 col-md-6 pt-3">
                 <div class="admin-card">
                     <h4>PMG (Petrol)</h4>
-                    <h1>16,000 <span>Litres</span></h1>
+                    <h1>{{pmgLoadTemp}} <span>Litres</span></h1>
                 </div>
             </div>
             <div class="col-12 col-md-6 pt-3">
                 <div class="admin-card">
                     <h4>HSD (Diesel)</h4>
-                    <h1>8,000 <span>Litres</span></h1>
+                    <h1>{{hsdLoadTemp}} <span>Litres</span></h1>
                 </div>
             </div>
         </div>
@@ -70,9 +70,9 @@
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Type of Sell</label>
-                        <select class="form-control" formControlName="typeSell">
-                          <option>PMG</option>
-                          <option>HSD</option>
+                        <select class="form-control" formControlName="typeSell" (change)="onUpdateCardLtrs($event)">
+                          <option value="pmg">PMG</option>
+                          <option value="hsd">HSD</option>
                         </select>
                     </div>
                     <div class="form-group col-12 col-md-4">
