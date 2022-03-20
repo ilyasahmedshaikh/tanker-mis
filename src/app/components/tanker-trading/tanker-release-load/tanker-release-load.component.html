@@ -46,13 +46,13 @@
             <div class="col-12 col-md-6 pt-3">
                 <div class="admin-card">
                     <h4>PMG (Petrol)</h4>
-                    <h1>16,000 <span>Litres</span></h1>
+                    <h1>{{pmgLoadTemp}} <span>Litres</span></h1>
                 </div>
             </div>
             <div class="col-12 col-md-6 pt-3">
                 <div class="admin-card">
                     <h4>HSD (Diesel)</h4>
-                    <h1>8,000 <span>Litres</span></h1>
+                    <h1>{{hsdLoadTemp}} <span>Litres</span></h1>
                 </div>
             </div>
         </div>
@@ -66,32 +66,36 @@
                 <form class="form-row pt-3" [formGroup]="programForm">
                     <div class="form-group col-12 col-md-6">
                         <label>Litres to Sell</label>
-                        <input type="number" class="form-control" placeholder="Litres to Sell" formControlName="litresSell">
+                        <input type="number" class="form-control" placeholder="Litres to Sell" formControlName="litresSell" (keyup)="onCalCommission()">
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Type of Sell</label>
-                        <select class="form-control" formControlName="typeSell">
-                          <option>PMG</option>
-                          <option>HSD</option>
+                        <select class="form-control" formControlName="typeSell" (change)="onUpdateCardLtrs($event)">
+                          <option value="pmg">PMG</option>
+                          <option value="hsd">HSD</option>
                         </select>
                     </div>
-                    <div class="form-group col-12 col-md-6">
+                    <div class="form-group col-12 col-md-4">
                         <label>Purchase Rate</label>
-                        <input type="number" class="form-control" placeholder="Purchase Rate" formControlName="purchaseRate">
+                        <input type="number" class="form-control" placeholder="Purchase Rate" formControlName="purchaseRate" (keyup)="onCalSellPerLitre()">
                     </div>
-                    <div class="form-group col-12 col-md-6">
+                    <div class="form-group col-12 col-md-4">
                         <label>Rent Per/Litre</label>
-                        <input type="number" class="form-control" placeholder="Rent Per/Litre" formControlName="rentPerLitre">
+                        <input type="number" class="form-control" placeholder="Rent Per/Litre" formControlName="rentPerLitre" (keyup)="onCalSellPerLitre()">
                     </div>
-                    <div class="form-group col-12 col-md-6">
+                    <div class="form-group col-12 col-md-4">
+                        <label><strong>Per/Litre with Rent</strong></label>
+                        <input type="number" class="form-control disabled-input" placeholder="Per/Litre with Rent" formControlName="perLitreWithRent">
+                    </div>
+                    <div class="form-group col-12 col-md-4">
                         <label>Per/Litre Sell Price</label>
-                        <input type="number" class="form-control" placeholder="Per/Litre Sell Price" formControlName="perLitreSellPrice">
+                        <input type="number" class="form-control" placeholder="Per/Litre Sell Price" formControlName="perLitreSellPrice" (keyup)="onCalCommission()">
                     </div>
-                    <div class="form-group col-12 col-md-6">
+                    <div class="form-group col-12 col-md-4">
                         <label>Commission Per/Litre</label>
                         <input type="number" class="form-control" placeholder="Commission Per/Litre" formControlName="commissionPerLitre">
                     </div>
-                    <div class="form-group col-12 col-md-6">
+                    <div class="form-group col-12 col-md-4">
                         <label>Commission Total</label>
                         <input type="number" class="form-control" placeholder="Commission Total" formControlName="commissionTotal">
                     </div>

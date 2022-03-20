@@ -13,12 +13,22 @@ export class TankerReleaseLoadComponent implements OnInit {
 
   isExternal: boolean = false;
 
+  pmgLoadTemp: number = 8000;
+  hsdLoadTemp: number = 16000;
+
+  // data from Backend
+  pmgLoad: number = 8000;
+  hsdLoad: number = 16000;
+
   constructor(
     private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.formInit();
+
+    this.onCalSellPerLitre();
+    this.onCalCommission();
 
     this.vehicles = [
       {
@@ -45,11 +55,12 @@ export class TankerReleaseLoadComponent implements OnInit {
       date: ['', Validators.required],
       vehicleNo: ['', Validators.required],
       externalVehicleNo: ['', Validators.required],
-      litresSell: ['', Validators.required],
+      litresSell: [0, Validators.required],
       typeSell: ['', Validators.required],
       purchaseRate: [145, Validators.required],
       rentPerLitre: [1.20, Validators.required],
-      perLitreSellPrice: ['', Validators.required],
+      perLitreWithRent: [0, Validators.required],
+      perLitreSellPrice: [0, Validators.required],
       commissionPerLitre: ['', Validators.required],
       commissionTotal: ['', Validators.required],
       soldAddress: ['', Validators.required],
@@ -66,6 +77,44 @@ export class TankerReleaseLoadComponent implements OnInit {
     
     if(event.target.value == 'external') {
       this.onExternal();
+    }
+  }
+
+  onCalSellPerLitre() {
+    // calculating perLitreSellPrice
+    let calc = this.programForm.value.purchaseRate + this.programForm.value.rentPerLitre;
+
+    this.programForm.patchValue({
+      perLitreSellPrice: calc,
+      perLitreWithRent: calc
+    });
+
+    // calculating commision on every change trigger 
+    this.onCalCommission()
+  }
+
+  onCalCommission() {
+    // calculating commision
+    let commisionPerLtr = this.programForm.value.perLitreSellPrice - this.programForm.value.perLitreWithRent;
+    let commisionTotal = commisionPerLtr * this.programForm.value.litresSell
+
+    this.programForm.patchValue({
+      commissionPerLitre: commisionPerLtr.toFixed(2),
+      commissionTotal: commisionTotal.toFixed(2)
+    });
+  }
+
+  onUpdateCardLtrs(event: any) {
+    let sellType = event.target.value;
+
+    this.pmgLoadTemp = this.pmgLoad;
+    this.hsdLoadTemp = this.hsdLoad;
+    
+    if(sellType == 'pmg') {
+      this.pmgLoadTemp = this.pmgLoad - this.programForm.value.litresSell;
+    }
+    if(sellType == 'hsd') {
+      this.hsdLoadTemp = this.hsdLoad - this.programForm.value.litresSell;
     }
   }
 
