@@ -55,4 +55,10 @@
       @content;
     }
   }
+
+  @if $breakpoint==mobileM {
+    @media only screen and (max-width: 375px) {
+      @content;
+    }
+  }
 }
