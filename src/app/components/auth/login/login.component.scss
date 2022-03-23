@@ -1,26 +1,38 @@
 @import '/src/styles.scss';
 
 .signin-screen {
-  // padding: 5% 0;
+  padding: 4% 0;
+  @include respond(mobile) {
+    padding: 7% 0;
+  }
   .heading {
     h2 {
-      font-size: 22px;
+      font-size: 21px;
       color: $black;
+      @include respond(mobile) {
+        font-size: 19px;
+      }
     }
     p {
       font-size: 16px;
       padding-top: 4px;
       color: $darkGray;
+      @include respond(mobile) {
+        font-size: 16px;
+      }
     }
   }
   .login-inputs {
+    padding-top: 8%;
+    @include respond(mobile) {
+      padding-top: 10%;
+    }
     .forgot-checkout {
       .forgot-btn {
         a {
           font-weight: 600;
           font-size: 16px;
           float: right;
-          // color: $darkGray;
         }
       }
     }
@@ -30,8 +42,10 @@
       }
     }
     .new-account {
-      padding-top: 9%;
-      text-align: center;
+      padding-top: 4%;
+      @include respond(mobile) {
+        padding-top: 8%;
+      }
       span {
         color: $black;
         font-size: 15px;
@@ -48,7 +62,6 @@
 .form-group {
   label {
     &.form-check-label {
-      // color: $darkGray;
       font-weight: 600;
     }
   }

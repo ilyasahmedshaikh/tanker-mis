@@ -1,33 +1,51 @@
 @import '/src/styles.scss';
 
 .signup-screen {
-	// padding: 5% 0;
-    .heading {
-        h2 {
-          font-size: 22px;
-          color: $black;
-        }
-        p {
-          font-size: 16px;
-          padding-top: 4px;
-          color: $darkGray;
-        }
+	padding: 4% 0;
+  @include respond(mobile) {
+    padding: 7% 0;
+  }
+  .heading {
+    h2 {
+      font-size: 21px;
+      color: $black;
+      @include respond(mobile) {
+        font-size: 19px;
       }
-  .signup-btn {
-    a {
-      letter-spacing: .1px;
+    }
+    p {
+      font-size: 16px;
+      padding-top: 4px;
+      color: $darkGray;
+      @include respond(mobile) {
+        font-size: 16px;
+      }
     }
   }
-  .login-account {
-    padding-top: 9%;
-    span {
-      color: $black;
-      font-size: 15px;
+  .signup-inputs {
+    padding-top: 8%;
+    @include respond(mobile) {
+      padding-top: 10%;
     }
-    a {
-      font-weight: 600;
-      font-size: 16px;
-      padding-left: 2px;
+    .signup-btn {
+      a {
+        letter-spacing: .1px;
+      }
+    }
+    .login-account {
+      padding-top: 4%;
+      @include respond(mobile) {
+        padding-top: 8%;
+      }
+      span {
+        color: $black;
+        font-size: 15px;
+      }
+      a {
+        font-weight: 600;
+        font-size: 16px;
+        padding-left: 2px;
+      }
     }
   }
 }
