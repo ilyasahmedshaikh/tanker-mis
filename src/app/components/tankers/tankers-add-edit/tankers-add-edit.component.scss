@@ -1,18 +1,30 @@
 @import '/src/styles.scss';
 
 .tankers-add-edit-screen {
-  // padding: 5% 0;
+    padding: 4% 0;
+    @include respond(mobile) {
+      padding: 7% 0;
+    }
     .heading {
         h2 {
-            font-size: 22px;
+            font-size: 21px;
             color: $black;
+            @include respond(mobile) {
+              font-size: 20px;
+            }
         }
     }
-    .add-btn {
-        display: block;
-        margin: auto;
-        a {
-            letter-spacing: .1px;
+    .tanker-inputs {
+        padding-top: 4%;
+        @include respond(mobile) {
+        padding-top: 10%;
+        }
+        .add-btn {
+            display: block;
+            margin: auto;
+            a {
+                letter-spacing: .1px;
+            }
         }
     }
 }

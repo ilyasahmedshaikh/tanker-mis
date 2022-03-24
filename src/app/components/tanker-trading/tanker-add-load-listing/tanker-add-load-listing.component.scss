@@ -1,31 +1,42 @@
 @import '/src/styles.scss';
 
 .tanker-add-load-listing-screen {
-  // padding: 5% 0;
+    padding: 4% 0;
+    @include respond(mobile) {
+      padding: 7% 0;
+    }
     .heading {
         h2 {
-            font-size: 22px;
+            font-size: 21px;
             color: $black;
+            @include respond(mobile) {
+              font-size: 20px;
+            }
             a {
                 float: right;
             }
         }
     }
-}
-
-table {
-    thead {
-        background: $default;
-        th {
-            color: $white;
+    .tanker-addload-listing {
+        padding-top: 4%;
+        @include respond(mobile) {
+        padding-top: 10%;
         }
-    }
-    tbody {
-        td {
-            i {
-                font-size: 18px;
-                margin-right: 12px;
-                cursor: pointer;
+        table {
+            thead {
+                background: $default;
+                th {
+                    color: $white;
+                }
+            }
+            tbody {
+                td {
+                    i {
+                        font-size: 18px;
+                        margin-right: 12px;
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }

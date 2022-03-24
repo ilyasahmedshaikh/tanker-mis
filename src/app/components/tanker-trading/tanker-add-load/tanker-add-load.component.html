@@ -8,132 +8,134 @@
             </div>
         </div>
 
-        <!-- form inputs -->
-        <div class="row pt-5">
-            <div class="col-12">
-                <form class="form-row" [formGroup]="programForm">
-                    <div class="form-group col-12 col-md-6">
-                        <label>Date</label>
-                        <input type="date" class="form-control" placeholder="Date" formControlName="date">
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label>Company</label>
-                        <select class="form-control" formControlName="company">
-                            <option *ngFor="let item of companies">{{item.company}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label>Invoice No.</label>
-                        <input type="text" class="form-control" placeholder="Invoice No." formControlName="invoiceNo">
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label>Vehicle No.</label>
-                        <select class="form-control" formControlName="vehicleNo" (change)="checkIfExternal($event)">
-                          <option *ngFor="let item of vehicles">{{item.vehicleNo}}</option>
-                          <option value="external">External Vehicle</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-12 col-md-6" *ngIf="isExternal">
-                        <label>External Vehicle No.</label>
-                        <input type="number" class="form-control" placeholder="External Vehicle No." formControlName="externalVehicleNo">
-                    </div>
-                </form>
+        <div class="tanker-addload-inputs">
+            <!-- form inputs -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-row" [formGroup]="programForm">
+                        <div class="form-group col-12 col-md-6">
+                            <label>Date</label>
+                            <input type="date" class="form-control" placeholder="Date" formControlName="date">
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Company</label>
+                            <select class="form-control" formControlName="company">
+                                <option *ngFor="let item of companies">{{item.company}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Invoice No.</label>
+                            <input type="text" class="form-control" placeholder="Invoice No." formControlName="invoiceNo">
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Vehicle No.</label>
+                            <select class="form-control" formControlName="vehicleNo" (change)="checkIfExternal($event)">
+                            <option *ngFor="let item of vehicles">{{item.vehicleNo}}</option>
+                            <option value="external">External Vehicle</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12 col-md-6" *ngIf="isExternal">
+                            <label>External Vehicle No.</label>
+                            <input type="number" class="form-control" placeholder="External Vehicle No." formControlName="externalVehicleNo">
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!-- PMG & HSD cards  -->
-        <div class="row load-card">
-            <div class="col-12 col-md-6 c1 pt-2">
-                <app-load-card [loadType]="loadTypePmg" (getCardData)="onPmgCardData($event)"></app-load-card>
+            <!-- PMG & HSD cards  -->
+            <div class="row load-card">
+                <div class="col-12 col-md-6 c1 pt-2">
+                    <app-load-card [loadType]="loadTypePmg" (getCardData)="onPmgCardData($event)"></app-load-card>
+                </div>
+                <div class="col-12 col-md-6 c2 pt-2">
+                    <app-load-card [loadType]="loadTypeHsd" (getCardData)="onHsdCardData($event)"></app-load-card>
+                </div>
             </div>
-            <div class="col-12 col-md-6 c2 pt-2">
-                <app-load-card [loadType]="loadTypeHsd" (getCardData)="onHsdCardData($event)"></app-load-card>
-            </div>
-        </div>
 
-        <!-- form inputs -->
-        <div class="row pt-4">
-            <div class="col-12">
-                <form class="form-row" [formGroup]="programForm">
-                    <div class="form-group col-12 col-md-6">
-                        <label>Expense Amount</label>
-                        <input type="number" class="form-control" placeholder="Expense Amount" formControlName="expenseAmount" (change)="calculateTotal()">
-                    </div>
-                    <div class="form-group col-12 col-md-6">
-                        <label>Vehicle Rent</label>
-                        <input type="number" class="form-control" placeholder="Vehicle Rent" formControlName="vehicleRent">
-                    </div>
-                </form>
+            <!-- form inputs -->
+            <div class="row pt-4">
+                <div class="col-12">
+                    <form class="form-row" [formGroup]="programForm">
+                        <div class="form-group col-12 col-md-6">
+                            <label>Expense Amount</label>
+                            <input type="number" class="form-control" placeholder="Expense Amount" formControlName="expenseAmount" (change)="calculateTotal()">
+                        </div>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Vehicle Rent</label>
+                            <input type="number" class="form-control" placeholder="Vehicle Rent" formControlName="vehicleRent">
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!-- Summary of Load  -->
-        <div class="row pt-4">
+            <!-- Summary of Load  -->
+            <div class="row pt-4">
+                <div class="col-12 text-center">
+                    <h3 class="head">Summary of Load</h3>
+                </div>
+                <div class="col-12 pt-3">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Load Breakdown</th>
+                            <th scope="col">Rate</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngIf="pmgCardData?.litre">
+                            <td>{{pmgCardData.litre}} <strong>{{pmgCardData.loadType}}</strong></td>
+                            <td>{{pmgCardData.rateLitre}}</td>
+                            <td>{{pmgCardData.total | currency: 'PKR'}}</td>
+                        </tr>
+                        <tr *ngIf="hsdCardData?.litre">
+                            <td>{{hsdCardData.litre}} <strong>{{hsdCardData.loadType}}</strong></td>
+                            <td>{{hsdCardData.rateLitre}}</td>
+                            <td>{{hsdCardData.total | currency: 'PKR'}}</td>
+                        </tr>
+                        <tr class="bg-light text-dark border-top">
+                            <td class="total">
+                                <span>Total Litres:</span>
+                                <h1>{{pmgCardData.litre + hsdCardData.litre}}</h1>
+                            </td>
+                            <td></td>
+                            <td class="total">
+                                <span>Total Amount:</span>
+                                <h1>{{pmgCardData.total + hsdCardData.total | currency: 'PKR'}}</h1>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- rent calculation -->
+            <div class="row rent-calculation pt-4">
+                <div class="col-12 text-center">
+                    <h3 class="head">Rent Calculation</h3>
+                </div>
+                <div class="col-12 col-md-5"></div>
+                <div class="col-12 col-md-7 pt-3">
+                    <p>Load with rent: 
+                        <span class="pl-2"><strong>{{programForm.value.vehicleRent * (pmgCardData.litre + hsdCardData.litre) | currency: 'PKR'}}</strong></span>
+                        <span>{{programForm.value.vehicleRent}} × {{pmgCardData.litre + hsdCardData.litre}} = </span>
+                    </p>
+                    <!-- total -->
+                    <p>Total load amount: <span>{{pmgCardData.total + hsdCardData.total | currency: 'PKR'}}</span></p>
+                    <p>Total expense: <span>{{programForm.value.expenseAmount | currency: 'PKR'}}</span></p>
+                    <!-- grand total -->
+                    <p class="mt-3">Grand Total: 
+                        <span class="grand">
+                            {{grandTotal | currency: 'PKR'}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+
             <div class="col-12 text-center">
-                <h3 class="head">Summary of Load</h3>
-            </div>
-            <div class="col-12 pt-3">
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">Load Breakdown</th>
-                        <th scope="col">Rate</th>
-                        <th scope="col">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngIf="pmgCardData?.litre">
-                        <td>{{pmgCardData.litre}} <strong>{{pmgCardData.loadType}}</strong></td>
-                        <td>{{pmgCardData.rateLitre}}</td>
-                        <td>{{pmgCardData.total | currency: 'PKR'}}</td>
-                      </tr>
-                      <tr *ngIf="hsdCardData?.litre">
-                        <td>{{hsdCardData.litre}} <strong>{{hsdCardData.loadType}}</strong></td>
-                        <td>{{hsdCardData.rateLitre}}</td>
-                        <td>{{hsdCardData.total | currency: 'PKR'}}</td>
-                      </tr>
-                      <tr class="bg-light text-dark border-top">
-                        <td class="total">
-                            <span>Total Litres:</span>
-                            <h1>{{pmgCardData.litre + hsdCardData.litre}}</h1>
-                        </td>
-                        <td></td>
-                        <td class="total">
-                            <span>Total Amount:</span>
-                            <h1>{{pmgCardData.total + hsdCardData.total | currency: 'PKR'}}</h1>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-
-        <!-- rent calculation -->
-        <div class="row rent-calculation pt-4">
-            <div class="col-12 text-center">
-                <h3 class="head">Rent Calculation</h3>
-            </div>
-            <div class="col-12 col-md-5"></div>
-            <div class="col-12 col-md-7 pt-3">
-                <p>Load with rent: 
-                    <span class="pl-2"><strong>{{programForm.value.vehicleRent * (pmgCardData.litre + hsdCardData.litre) | currency: 'PKR'}}</strong></span>
-                    <span>{{programForm.value.vehicleRent}} × {{pmgCardData.litre + hsdCardData.litre}} = </span>
-                </p>
-                <!-- total -->
-                <p>Total load amount: <span>{{pmgCardData.total + hsdCardData.total | currency: 'PKR'}}</span></p>
-                <p>Total expense: <span>{{programForm.value.expenseAmount | currency: 'PKR'}}</span></p>
-                <!-- grand total -->
-                <p class="mt-3">Grand Total: 
-                    <span class="grand">
-                        {{grandTotal | currency: 'PKR'}}
-                    </span>
-                </p>
-            </div>
-        </div>
-
-        <div class="col-12 text-center">
-            <div class="add-btn mt-5">
-                <a class="c-btn pink" routerLink="/tanker-trading/tanker-add-load-listing">Save</a>
+                <div class="add-btn mt-5">
+                    <a class="c-btn pink" routerLink="/tanker-trading/tanker-add-load-listing">Save</a>
+                </div>
             </div>
         </div>
     </div>
