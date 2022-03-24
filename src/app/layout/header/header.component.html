@@ -45,9 +45,9 @@
             <div class="dropdown">
               <button class="dropbtn text-uppercase">Tanker Trading</button>
               <div class="dropdown-content">
-                <a routerLink="tanker-trading/tanker-add-load-listing">Add Load Listing</a>
+                <a routerLink="tanker-trading/tanker-add-load-listing">Add Loads</a>
                 <a routerLink="tanker-trading/tanker-add-load">Add Load</a>
-                <a routerLink="tanker-trading/tanker-release-load-listing">Release Load Listing</a>
+                <a routerLink="tanker-trading/tanker-release-load-listing">Release Loads</a>
                 <a routerLink="tanker-trading/tanker-release-load">Release Load</a>
               </div>
             </div>
@@ -61,6 +61,8 @@
                 <a routerLink="reports/expense-report">Expense Report</a>
               </div>
             </div>
+
+            <li><a class="text-uppercase" routerLink="/status">Status</a></li>
 
           </ul>
         </div>
@@ -105,6 +107,8 @@
       <li><a (click)="toggleMenu()" routerLink="reports/sales-external-tankers">Extend Tankers Reports</a></li>
       <li><a (click)="toggleMenu()" routerLink="reports/expense-report">Expence Reports</a></li>
     </ol>
+
+    <li><a (click)="toggleMenu()" class="text-uppercase" routerLink="/status">Status</a></li>
 
 
 

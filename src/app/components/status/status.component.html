@@ -1,0 +1,95 @@
+<div class="status">
+    <div class="container">
+        
+        <div class="scrollmenu">
+            <div class="item" (click)="onChangeTab('tab1')" [ngClass]="{'active': selectedTab == 'tab1'}">
+                Available
+            </div>
+            <div class="item" (click)="onChangeTab('tab2')" [ngClass]="{'active': selectedTab == 'tab2'}">
+                In Progress
+            </div>
+            <div class="item" (click)="onChangeTab('tab3')" [ngClass]="{'active': selectedTab == 'tab3'}">
+                Completed
+            </div>
+        </div>
+    
+        <div class="row pt-4" *ngIf="selectedTab == 'tab1'">
+            <div class="col-12" *ngFor="let item of available">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-1">
+                                <i class="fa-solid fa-truck-moving"></i>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-5">
+                                <h3>{{item.vehicle}}</h3>
+                                <h6>PNG ({{item.petrol}}) / HSD ({{item.diesel}})</h6>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-6">
+                                <div class="info">
+                                    <h6>{{item.usedBy}}</h6>
+                                    <p>Date : {{item.date}}  -  Time : {{item.time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row pt-4" *ngIf="selectedTab == 'tab2'">
+            <div class="col-12" *ngFor="let item of progress">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-1">
+                                <i class="fa-solid fa-truck-moving"></i>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-5">
+                                <h3>{{item.vehicle}}</h3>
+                                <h6>Sold : PNG ({{item.petrol}}) / HSD ({{item.diesel}})</h6>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-6">
+                                <div class="info">
+                                    <h6>{{item.usedBy}}</h6>
+                                    <p>Date : {{item.date}}  -  Time : {{item.time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row pt-4" *ngIf="selectedTab == 'tab3'">
+            <div class="col-12" *ngFor="let item of completed">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-1">
+                                <i class="fa-solid fa-truck-moving"></i>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-5">
+                                <h3>{{item.vehicle}}</h3>
+                                <h6>PNG ({{item.petrol}}) / HSD ({{item.diesel}})</h6>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-6">
+                                <div class="info">
+                                    <h6>{{item.usedBy}}</h6>
+                                    <p>Date : {{item.date}}  -  Time : {{item.time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
