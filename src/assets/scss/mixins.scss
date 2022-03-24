@@ -8,6 +8,7 @@
     text-align: center;
     padding: $padding;
     width: $width;
+    cursor: pointer;
     &.active {
       border-bottom: 3px solid $color;
     }
