@@ -1,9 +1,12 @@
 @import '../../../styles.scss';
 
 .status{
-    padding: 40px 0;
+    padding: 4% 0;
+    @include respond(mobile) {
+      padding: 7% 0;
+    }
     .scrollmenu {
-        @include scroll-menu($width: 33.3%, $padding: 14px, $background: $white, $color: $darkGray);
+        @include scroll-menu($width: 33.3%, $padding: 14px, $background: $white, $color: $pink);
         .item { 
             background-color: #f9f9f9;
             &.active {
