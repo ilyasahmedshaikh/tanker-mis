@@ -3,7 +3,7 @@
 .tanker-add-load-screen {
     padding: 4% 0;
     @include respond(mobile) {
-      padding: 7% 0;
+        padding: 7% 0 12% 0;
     }
     .heading {
         h2 {
