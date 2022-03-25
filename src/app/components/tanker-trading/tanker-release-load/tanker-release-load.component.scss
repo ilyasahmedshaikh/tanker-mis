@@ -3,7 +3,7 @@
 .tanker-release-load-screen {
     padding: 4% 0;
     @include respond(mobile) {
-        padding: 7% 0 12% 0;
+        padding: 7% 0 17% 0;
     }
     .heading {
         h2 {
@@ -57,7 +57,7 @@
         .release-form {
             padding-top: 35px;
             @include respond(mobile) {
-                padding-top: 29px;
+                padding-top: 34px;
             }
             .heading {
                 h2 {

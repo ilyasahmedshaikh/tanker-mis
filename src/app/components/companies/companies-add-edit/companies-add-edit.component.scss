@@ -3,7 +3,7 @@
 .companies-add-edit-screen {
     padding: 4% 0;
     @include respond(mobile) {
-      padding: 7% 0;
+        padding: 7% 0 15% 0;
     }
     .heading {
         h2 {
