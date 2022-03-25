@@ -20,7 +20,7 @@
     .tankers-listing {
         padding-top: 4%;
         @include respond(mobile) {
-        padding-top: 10%;
+            padding-top: 10%;
         }
         table {
             thead {

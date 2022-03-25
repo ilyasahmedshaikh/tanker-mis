@@ -1,0 +1,55 @@
+@import '/src/styles.scss';
+
+.dashboard-screen {
+    padding: 4% 0;
+    @include respond(mobile) {
+      padding: 7% 0;
+    }
+    .heading {
+        h2 {
+            font-size: 21px;
+            color: $black;
+            @include respond(mobile) {
+              font-size: 20px;
+            }
+        }
+    }
+    .dashboard-cards {
+        padding-top: 25px;
+        @include respond(mobile) {
+            padding-top: 20px;
+        }
+        .date-picker {
+            padding-top: 20px;
+            @include respond(mobile) {
+                padding-top: 18px;
+            }
+        }
+        .admin-card {
+            margin-top: 20px;
+            @include respond(mobile) {
+                margin-top: 17px;
+            }
+            h1 {
+                font-size: 20px;
+                font-weight: 600;
+                padding-bottom: 40px;
+                color: $black;
+                @include respond(mobile) {
+                    font-size: 19.5px;
+                }
+            }
+            p {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #e5e5e5;
+                padding: 6px 0;
+                color: $black;
+                font-size: 17.5px;
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}
