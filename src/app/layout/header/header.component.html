@@ -21,7 +21,7 @@
             <div class="dropdown">
               <button class="dropbtn text-uppercase">Tankers</button>
               <div class="dropdown-content">
-                <a routerLink="tankers/tankers-add-edit">Add Tankers</a>
+                <a routerLink="tankers/tankers-add-edit">Add Tanker</a>
                 <a routerLink="tankers/tankers-listing">Tankers</a>
               </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="dropdown">
               <button class="dropbtn text-uppercase">Companies</button>
               <div class="dropdown-content">
-                <a routerLink="/companies/companies-add-edit">Add Companies</a>
+                <a routerLink="/companies/companies-add-edit">Add Company</a>
                 <a routerLink="/companies/companies-listing">Companies</a>
               </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="dropdown">
               <button class="dropbtn text-uppercase">Users</button>
               <div class="dropdown-content">
-                <a routerLink="users/users-add-edit">Add Users</a>
+                <a routerLink="users/users-add-edit">Add User</a>
                 <a routerLink="users/users-listing">Users</a>
               </div>
             </div>
@@ -76,27 +76,27 @@
     <li><a (click)="toggleMenu()" class="text-uppercase" routerLink="/dashboard">Dashboard</a></li>
     <li><a (click)="toggleMenu()" class="text-uppercase" routerLink="/tankers">Tankers</a></li>
     <ol type="square">
-      <li><a (click)="toggleMenu()" routerLink="tankers/tankers-add-edit">Add Tankers</a></li>
+      <li><a (click)="toggleMenu()" routerLink="tankers/tankers-add-edit">Add Tanker</a></li>
       <li><a (click)="toggleMenu()" routerLink="tankers/tankers-listing">Tankers</a></li>
     </ol>
 
     <li><a (click)="toggleMenu()" class="text-uppercase" routerLink="/companies">Companies</a></li>
     <ol type="square">
-      <li><a (click)="toggleMenu()" routerLink="/companies/companies-add-edit">Add Companies</a></li>
+      <li><a (click)="toggleMenu()" routerLink="/companies/companies-add-edit">Add Company</a></li>
       <li><a (click)="toggleMenu()" routerLink="/companies/companies-listing">Companies</a></li>
     </ol>
 
     <li><a (click)="toggleMenu()" class="text-uppercase" routerLink="/users">Users</a></li>
     <ol type="square">
-      <li><a (click)="toggleMenu()" routerLink="users/users-add-edit">Add Users</a></li>
+      <li><a (click)="toggleMenu()" routerLink="users/users-add-edit">Add User</a></li>
       <li><a (click)="toggleMenu()" routerLink="users/users-listing">Users</a></li>
     </ol>
 
     <li><a (click)="toggleMenu()" class="text-uppercase" routerLink="/homepage">Tanker Trading</a></li>
     <ol type="square">
-      <li><a (click)="toggleMenu()" routerLink="tanker-trading/tanker-add-load-listing">Add Load Listing</a></li>
+      <li><a (click)="toggleMenu()" routerLink="tanker-trading/tanker-add-load-listing">Add Loads</a></li>
       <li><a (click)="toggleMenu()" routerLink="tanker-trading/tanker-add-load">Add Load</a></li>
-      <li><a (click)="toggleMenu()" routerLink="tanker-trading/tanker-release-load-listing">Release Load Listing</a></li>
+      <li><a (click)="toggleMenu()" routerLink="tanker-trading/tanker-release-load-listing">Release Loads</a></li>
       <li><a (click)="toggleMenu()" routerLink="tanker-trading/tanker-release-load">Release Load</a></li>
     </ol>
 
@@ -104,7 +104,7 @@
     <ol type="square">
       <li><a (click)="toggleMenu()" routerLink="reports/sales-company-report">Company Reports</a></li>
       <li><a (click)="toggleMenu()" routerLink="reports/sales-tanker-report">Tanker Reports</a></li>
-      <li><a (click)="toggleMenu()" routerLink="reports/sales-external-tankers">Extend Tankers Reports</a></li>
+      <li><a (click)="toggleMenu()" routerLink="reports/sales-external-tankers">External Tankers Reports</a></li>
       <li><a (click)="toggleMenu()" routerLink="reports/expense-report">Expence Reports</a></li>
     </ol>
 
