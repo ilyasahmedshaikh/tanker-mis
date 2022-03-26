@@ -17,10 +17,16 @@
             }
         }
     }
-    .companies-listing {
+    .search-bar {
         padding-top: 4%;
         @include respond(mobile) {
-        padding-top: 10%;
+            padding-top: 10%;
+        }
+    }
+    .companies-listing {
+        padding-top: 3%;
+        @include respond(mobile) {
+        padding-top: 6%;
         }
         table {
             thead {

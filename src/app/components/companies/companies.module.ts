@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CompaniesRoutingModule } from './companies-routing.module';
@@ -19,7 +20,8 @@ import { CompaniesAddEditComponent } from './companies-add-edit/companies-add-ed
     CommonModule,
     CompaniesRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class CompaniesModule { }
