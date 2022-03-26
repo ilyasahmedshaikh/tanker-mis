@@ -1,1 +1,38 @@
-<p>sales-tanker-report works!</p>
+<div class="sales-tanker-report-screen">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading">
+                    <h2>Sales Tanker Reports</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="search-bar">
+                    <app-search-bar></app-search-bar>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="tanker-table">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Tanker No. Plate</th>
+                            <th scope="col">Tanker Name/Type</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of table">
+                            <td>{{item.id}}</td>
+                            <td>{{item.noPlate}}</td>
+                            <td>{{item.nameType}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

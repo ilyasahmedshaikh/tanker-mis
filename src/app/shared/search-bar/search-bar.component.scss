@@ -1,0 +1,24 @@
+@import '/src/styles.scss';
+
+.search-bar {
+    position: relative;
+    input {
+        width: 100%;
+        padding: 7px 50px 7px 15px;
+        font-size: 17px;
+        border-radius: 100px;
+        border: 2px solid $pink;
+    }
+    a {
+        position: absolute;
+        top: 6px;
+        right: 20px;
+        font-size: 22px;
+        cursor: pointer;
+        @include respond(mobile) {
+            top: 7px;
+            right: 15px;
+            font-size: 18px;
+        }
+    }
+}
