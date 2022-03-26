@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TankerTradingRoutingModule } from './tanker-trading-routing.module';
@@ -25,7 +26,8 @@ import { LoadCardComponent } from './tanker-add-load/load-card/load-card.compone
     CommonModule,
     TankerTradingRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class TankerTradingModule { }
