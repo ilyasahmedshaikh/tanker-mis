@@ -1,0 +1,37 @@
+@import '/src/styles.scss';
+
+.sales-external-tanker-report-screen {
+    padding: 4% 0;
+    @include respond(mobile) {
+        padding: 7% 0 15% 0;
+    }
+    .heading {
+        h2 {
+            font-size: 21px;
+            color: $black;
+            @include respond(mobile) {
+              font-size: 19px;
+            }
+        }
+    }
+    .search-bar {
+        padding-top: 4%;
+        @include respond(mobile) {
+            padding-top: 10%;
+        }
+    }
+    .external-table {
+        padding-top: 3%;
+        @include respond(mobile) {
+            padding-top: 6%;
+        }
+        table {
+            thead {
+                background: $default;
+                th {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

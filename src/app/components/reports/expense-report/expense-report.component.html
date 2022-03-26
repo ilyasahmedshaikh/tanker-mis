@@ -1,1 +1,42 @@
-<p>expense-report works!</p>
+<div class="expense-report-screen">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading">
+                    <h2>Expense Reports</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="search-bar">
+                    <app-search-bar></app-search-bar>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="expense-table">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Representative</th>
+                            <th scope="col">Address</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of table">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.phone}}</td>
+                            <td>{{item.representative}}</td>
+                            <td>{{item.address}}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
