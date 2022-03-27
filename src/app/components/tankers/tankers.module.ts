@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TankersRoutingModule } from './tankers-routing.module';
@@ -19,7 +20,8 @@ import { TankersAddEditComponent } from './tankers-add-edit/tankers-add-edit.com
     CommonModule,
     TankersRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class TankersModule { }
