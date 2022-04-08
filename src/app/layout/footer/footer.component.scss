@@ -63,14 +63,14 @@
                 border: 1px solid $pink;
                 background: $default;
                 border-radius: 30px;
-                padding: 8px;
+                padding: 9px 8px 7px 8px;
                 margin-right: 10px;
                 @include respond(tablet){
                     padding: 6px;
                     margin-right: 5px;
                 }
                 i{
-                    font-size: 20px;
+                    font-size: 19px;
                     color: $white;
                     @include respond(tablet){
                         font-size: 18px;
@@ -78,7 +78,7 @@
                     &:hover{
                         transition: 0.5s;
                         opacity: 0.5s;
-                        color: $darkGray;
+                        color: $black
                     }
                 }
             }
